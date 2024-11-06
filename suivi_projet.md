@@ -23,11 +23,14 @@
 
 ## Séance n° 2
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+* 06/11/2024 - 8h30 -> 11h30
+* Travail effectué :
+	- Installation docker, mysql
+	- Tentative d'installation dolibarr manuellement puis avec docker, les deux ne se sont pas finalisées.
+* A faire à la prochaine séance:
+	- comprendre ce qui n'a pas marché à la séance précédente et finalisation de l'installation de dolibarr
+* Difficultés rencontrées : Problème au moent de la création de la page web avec le docker
+* Remarques sur la séances (membre absent, pbe technique, ...): RAS
 
 
 ## Séance n° 3
