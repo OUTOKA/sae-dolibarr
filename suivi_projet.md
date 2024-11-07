@@ -51,23 +51,28 @@
 
 * 07/11/2024 - 13H -> 16H
 * Travail effectué : 
-	- Test d'import CSV
-	- Recherche pour le script d'import csv
+	- Export Csv pour comprendre la structure des fichiers pour un import
+	- Test Import CSV
 * A faire à la prochaine séance
-	- Finir le script d'import CSV
-	- Faire le script pour l'installation de Dolibarr
+	- Réussir un import CSV
+	- Commencer le script pour importer le csv
 	- Commencer la doc
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+* Difficultés rencontrées : Difficulté à comprendre les export et les imports
+* Remarques sur la séances (membre absent, pbe technique, ...) : RAS
 
 
 ## Séance n° 5
 
-* date - heure
-* Travail effectué
-* A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+* 07/11/2024 - 16h -> 19h
+* Travail effectué : 
+	- Import d'utilisateurs réussis
+	- Début du travail sur le script d'import pour le CSV
+* A faire à la prochaine séance : 
+	- Commencer la doc
+	- Finir le script pour l'import
+	- Faire le script d'installation de Dolibarr dockerisé
+* Difficultés rencontrées : Problème avec les valeurs dans le fichiers CSV
+* Remarques sur la séances (membre absent, pbe technique, ...) : RAS
 
 
 ## Séance n° 6
