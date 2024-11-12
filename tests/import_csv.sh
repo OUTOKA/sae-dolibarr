@@ -1,19 +1,64 @@
 #!/bin/bash
 
-# Variables de configuration
-CSV_FILE="export_user_1.csv"
-DB_HOST="localhost"
-DB_USER="admin"
-DB_PASS="admin"
-DB_NAME="dolibarr"
-TABLE_NAME="llx_user"
+# Configuration
+API_URL="http://0.0.0.0:90/api/index.php/users" # URL de l'API Dolibarr
+API_KEY="oZoO7U2y7oBz1UiFgiJg372TJ3W1rsS4"                                # Votre jeton API Dolibarr
+CSV_FILE="export_user_1.csv"                   # Chemin du fichier CSV
 
-# Boucle pour lire le CSV et insérer dans MySQL
-while IFS=',' read -r champ1 champ2 champ3; do
-    # Créer une requête SQL
-    SQL_QUERY="INSERT INTO $TABLE_NAME (champ1, champ2, champ3) VALUES ('$champ1', '$champ2', '$champ3');"
+# Vérifier si le fichier CSV existe
+if [[ ! -f "$CSV_FILE" ]]; then
+    echo "Le fichier CSV $CSV_FILE est introuvable."
+    exit 1
+fi
 
-    # Exécuter la requête dans MySQL
-    mysql -u "$DB_USER" -p "$DB_NAME" --password="$DB_PASS" 
+# Fonction pour ajouter un utilisateur
+add_user() {
+    local login="$1"
+    local lastname="$2"
+    local firstname="$3"
+    local gender="$4"
+    local email="$5"
+    local city="$6"
+    local phone="$7"
 
+    # Construction de la requête JSON
+    data=$(jq -n \
+        --arg login "$login" \
+        --arg lastname "$lastname" \
+        --arg firstname "$firstname" \
+        --arg gender "$gender" \
+        --arg email "$email" \
+        --arg city "$city" \
+        --arg phone "$phone" \
+        '{
+            login: $login,
+            lastname: $lastname,
+            firstname: $firstname,
+            gender: $gender,
+            email: $email,
+            address: {city: $city},
+            phone_pro: $phone
+        }')
+
+    # Envoi de la requête POST à l'API de Dolibarr
+    response=$(curl -s -X POST "$API_URL" \
+        -H "DOLAPIKEY: $API_KEY" \
+        -H "Content-Type: application/json" \
+        -d "$data")
+
+    # Vérification de la réponse
+    if echo "$response" | grep -q '"id":'; then
+        echo "Utilisateur $firstname $lastname ajouté avec succès."
+    else
+        echo "Erreur lors de l'ajout de l'utilisateur $firstname $lastname : $response"
+    fi
+}
+
+# Lecture du fichier CSV et ajout de chaque utilisateur
+while IFS=, read -r login lastname firstname gender email city phone; do
+    # Ignorer la ligne d'en-tête si nécessaire
+    if [[ "$login" != "identifiant" ]]; then
+        add_user "$login" "$lastname" "$firstname" "$gender" "$email" "$city" "$phone"
+    fi
 done < "$CSV_FILE"
+

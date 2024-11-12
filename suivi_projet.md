@@ -77,8 +77,12 @@
 
 ## Séance n° 6
 
-* date - heure
-* Travail effectué
+* 12/11/2024 - 8h30 -> 11h30
+* Travail effectué :
+	- Import d'utilisateurs depuis le cmd en utilisant la clé API
+	- Travail sur le script csv
 * A faire à la prochaine séance
-* Difficultés rencontrées
-* Remarques sur la séances (membre absent, pbe technique, ...)
+	- Finir le script csv
+	- Commencer la doc
+* Difficultés rencontrées : Import avec l'API fonctionnel mais script inopérant
+* Remarques sur la séances (membre absent, pbe technique, ...) : Hugo Bienvenu absent (rdv médical)
