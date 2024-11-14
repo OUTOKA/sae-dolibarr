@@ -36,7 +36,7 @@ add_user() {
             firstname: $firstname,
             gender: $gender,
             email: $email,
-            address: {city: $city},
+            city: $city,
             phone_pro: $phone
         }')
 
@@ -50,15 +50,18 @@ add_user() {
     if echo "$response" | grep -q '"id":'; then
         echo "Utilisateur $firstname $lastname ajouté avec succès."
     else
-        echo "Erreur lors de l'ajout de l'utilisateur $firstname $lastname : $response"
+        echo "ajout de l'utilisateur $firstname $lastname : $response"
     fi
 }
 
 # Lecture du fichier CSV et ajout de chaque utilisateur
 while IFS=, read -r login lastname firstname gender email city phone; do
-    # Ignorer la ligne d'en-tête si nécessaire
-    if [[ "$login" != "identifiant" ]]; then
+    # Vérifier que le login n'est pas vide
+    if [[ -n "$login" && "$login" != "identifiant" ]]; then
         add_user "$login" "$lastname" "$firstname" "$gender" "$email" "$city" "$phone"
+    else
+        echo "Erreur : Le champ 'Login' est vide ou manquant pour l'utilisateur $firstname $lastname."
     fi
 done < "$CSV_FILE"
+
 

@@ -86,3 +86,15 @@
 	- Commencer la doc
 * Difficultés rencontrées : Import avec l'API fonctionnel mais script inopérant
 * Remarques sur la séances (membre absent, pbe technique, ...) : Hugo Bienvenu absent (rdv médical)
+
+## Séance n° 7
+
+* 14/11/2024 - 13h -> 14h30
+* Travail effectué :
+	- Réalisation d'un script fonctionnel permettant d'importer des utilisateurs avec génération de liste d'utilisateur avec chatGPT
+	- Commencement d'un scripte permettant d'importer du fichier peu importe la table
+* A faire à la prochaine séance
+	- Finir le script csv
+	- Commencer la doc
+* Difficultés rencontrées : Execution du script en fonction de la table désirée
+* Remarques sur la séances (membre absent, pbe technique, ...) : Hugo Bienvenu absent et présentation militaire de 14h30 à 16h.
