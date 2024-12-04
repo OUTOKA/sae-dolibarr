@@ -207,3 +207,25 @@ done < "$CSV_FILE"
 echo "Importation terminée."
 ```
 
+## Étapes principales du fonctionnement  
+
+1. **Configuration de base** :  
+   - Le script définit l'URL de l'API et la clé API nécessaires pour interagir avec Dolibarr.  
+
+2. **Vérification des outils nécessaires** :  
+   - Le script vérifie si `jq` est installé, car il est indispensable pour manipuler les données JSON.  
+
+3. **Demande d'informations utilisateur** :  
+   - Le chemin du fichier CSV à importer.  
+   - La table cible de Dolibarr où les données doivent être ajoutées (exemple : `users`, `products`).  
+
+4. **Lecture du fichier CSV** :  
+   - La première ligne du fichier est l'en-tête, utilisée pour définir les clés des données.  
+   - Les lignes suivantes contiennent les données qui seront transformées en objets JSON.  
+
+5. **Construction et envoi des requêtes API** :  
+   - Chaque ligne du fichier CSV est convertie en un objet JSON.  
+   - Ce JSON est envoyé à Dolibarr via une requête HTTP POST, en utilisant `curl`.  
+
+6. **Affichage des résultats** :  
+   - Le script affiche les réponses de l'API pour chaque envoi, ce qui permet de vérifier
