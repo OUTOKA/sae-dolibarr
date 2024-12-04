@@ -77,8 +77,6 @@ Ce service installe et exécute l'application Dolibarr ERP & CRM, accessible via
   - `/home/dolibarr_custom` : Stocke les fichiers de personnalisation.  
 - **Ports** :  
   - Dolibarr est accessible à l'adresse : [http://127.0.0.1:90](http://127.0.0.1:90).  
-- **
-
 
 ## Première prise en main de Dolibarr    
 
