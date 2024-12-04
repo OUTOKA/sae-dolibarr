@@ -1,5 +1,5 @@
 #### Antoine DIDIERJEAN
-#### Hugo Bienvenu
+#### Hugo BIENVENU
 
 # SAE51 - projet 3 Installation d’un ERP/CRM
 
