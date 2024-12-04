@@ -75,7 +75,7 @@ while IFS=, read -r identifiant nom prenom genre email ville telephone; do
             data=$(jq -n --arg name "$nom" --arg town "$ville" --arg email "$email" --arg phone "$telephone" \
                       '{name: $name, town: $town, email: $email, phone: $phone}')
         elif [[ "$TABLE" == "products" ]]; then
-            data=$(jq -n --arg ref "$identifiant" --arg label "$nom $prenom" --arg price "$telephone" \
+            data=$(jq -n --arg ref "$ref" --arg label "$label" --arg price "$price" \
                       '{ref: $ref, label: $label, price: $price}')
         fi
 
