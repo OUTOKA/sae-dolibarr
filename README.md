@@ -19,7 +19,7 @@ Ce guide explique comment configurer et exécuter Dolibarr ERP & CRM en utilisan
 
 ## Fichier docker-compose.yml
 
-Voici la configuration complète du fichier :  
+Voici le fichier **docker-compose.yml** :  
 
 ```bash
 yaml
@@ -53,6 +53,31 @@ services:
             - /home/dolibarr_documents:/var/www/documents1
             - /home/dolibarr_custom:/var/www/html/custom1
 ```
+
+Ce fichier `docker-compose.yml` configure et déploie deux conteneurs afin d'exécuter Dolibarr ERP & CRM avec Docker.  
+
+## Services configurés  
+
+### 1. **MariaDB**  
+Ce service installe une base de données relationnelle MariaDB, utilisée par Dolibarr pour stocker toutes ses données.  
+- **Image** : `mariadb:11.6.2`.  
+- **Volumes** :  
+  - Les données sont sauvegardées sur votre machine dans le répertoire :  
+    `/home/dolibarr_mariadb`.  
+- **Configuration** :  
+  - Le mot de passe root et le nom de la base de données (`dolibarr`) sont définis via des variables d’environnement.  
+
+---
+
+### 2. **Dolibarr (web)**  
+Ce service installe et exécute l'application Dolibarr ERP & CRM, accessible via un navigateur.  
+- **Image** : `dolibarr/dolibarr:20.0.0`.  
+- **Volumes** :  
+  - `/home/dolibarr_documents` : Stocke les documents générés par Dolibarr (devis, factures, etc.).  
+  - `/home/dolibarr_custom` : Stocke les fichiers de personnalisation.  
+- **Ports** :  
+  - Dolibarr est accessible à l'adresse : [http://127.0.0.1:90](http://127.0.0.1:90).  
+- **
 
 
 ## Première prise en main de Dolibarr    
