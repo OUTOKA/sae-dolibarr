@@ -17,7 +17,7 @@ Ce guide explique comment configurer et exécuter Dolibarr ERP & CRM en utilisan
 - **Docker** et **Docker Compose** doivent être installés sur votre machine.  
 - Assurez-vous d'avoir les permissions nécessaires pour créer et monter des volumes locaux.  
 
-## Fichier `docker-compose.yml`  
+## Fichier docker-compose.yml
 
 Voici la configuration complète du fichier :  
 
