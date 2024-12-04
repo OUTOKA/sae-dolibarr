@@ -98,3 +98,15 @@
 	- Commencer la doc
 * Difficultés rencontrées : Execution du script en fonction de la table désirée
 * Remarques sur la séances (membre absent, pbe technique, ...) : Hugo Bienvenu absent et présentation militaire de 14h30 à 16h.
+
+## Séance n° 7
+
+* 04/12/2024 - 13h -> 17h30
+* Travail effectué :
+	- Finalisation du script permettant d'importer du CSV peu importe la table
+	- Réalisation d'un script permettant un backup
+	- Début de la réalisation de la documentation dans le README
+* A finir avant de rendre : 
+	- Finir la documentation
+* Difficultés rencontrées : Problème d'autorisations au niveau de la base de données
+* Remarques sur la séances (membre absent, pbe technique, ...) : RAS
