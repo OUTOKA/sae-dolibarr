@@ -1,6 +1,6 @@
 # Journal de bord
 
-* ise en place d’un ERP/CRM dans une entreprise
+* Mise en place d’un ERP/CRM dans une entreprise
 * NOM CHEF DE PROJET : Didierjean
 * NOMS AUTRE MEMBRES EQUIPE : Bienvenu
 * DATE DEBUT : 05/11/2024
