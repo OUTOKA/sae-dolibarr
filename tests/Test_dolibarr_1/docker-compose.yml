@@ -1,6 +1,6 @@
 services:
     mariadb:
-        image: mariadb:latest
+        image: mariadb:11.6.2
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: dolibarr
