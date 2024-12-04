@@ -78,7 +78,9 @@ Ce service installe et exécute l'application Dolibarr ERP & CRM, accessible via
 - **Ports** :  
   - Dolibarr est accessible à l'adresse : [http://127.0.0.1:90](http://127.0.0.1:90).  
 
-## Première prise en main de Dolibarr    
+---
+
+# Première prise en main de Dolibarr    
 
 ### Prérequis  
 Avant de commencer, assurez-vous que les conditions suivantes sont remplies :  
@@ -93,5 +95,111 @@ Dolibarr est accessible à l'adresse : [http://127.0.0.1:90](http://127.0.0.1:90
   - **MOT DE PASSE** : admin
 
 Se rendre dans le menu "Configuration" puis "Modules/Application".
-Selectionner ensuite les modules souhaité comment par exemple : "Utilisateur & Groupes", "Expedition"...
+Selectionner ensuite les modules souhaité comme par exemple : "Utilisateur & Groupes", "Expedition"...
+Activer ensuite ces modules.
+
+---
+
+# Script d'importation de données vers Dolibarr via l'API REST  
+
+Ce script en Bash permet d'importer des données depuis un fichier CSV dans une table cible de Dolibarr via son API REST. Il utilise `curl` pour envoyer les requêtes HTTP et `jq` pour manipuler les données JSON.
+
+---
+
+## Prérequis  
+
+Avant d'utiliser ce script, assurez-vous d'avoir les éléments suivants :  
+1. **Un serveur Dolibarr** avec l'API REST activée.  
+2. **Une clé API valide** pour accéder à l'API Dolibarr.  
+3. **Les outils suivants installés sur votre système** :  
+   - `bash`  
+   - `curl`  
+   - `jq` (pour manipuler les JSON).  
+   - Si `jq` n'est pas installé, vous pouvez l'ajouter avec :  
+     ```bash
+     sudo apt install jq
+     ```
+
+---
+
+## Utilisation  
+
+# Script d'importation de données vers Dolibarr via l'API REST  
+
+```bash
+#!/bin/bash
+
+# Configuration de base
+API_URL="http://0.0.0.0:90/api/index.php"
+API_KEY="oZoO7U2y7oBz1UiFgiJg372TJ3W1rsS4"
+
+# Vérifier si jq est installé
+if ! command -v jq &> /dev/null; then
+    echo "Erreur : 'jq' n'est pas installé. Installez-le avec 'sudo apt install jq' (ou équivalent)."
+    exit 1
+fi
+
+# Demander le fichier CSV à l'utilisateur
+read -p "Entrez le chemin du fichier CSV à importer : " CSV_FILE
+
+# Vérifier si le fichier CSV existe
+if [[ ! -f "$CSV_FILE" ]]; then
+    echo "Erreur : le fichier $CSV_FILE n'existe pas."
+    exit 1
+fi
+
+# Demander la table d'importation
+read -p "Entrez le nom de la table cible (par exemple, 'users', 'thirdparties', 'products') : " TABLE
+
+# Fonction pour importer une ligne
+import_entry() {
+    local data="$1"
+    local response
+
+    # Envoi de la requête POST
+    response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "$API_URL/$TABLE" \
+        -H "DOLAPIKEY: $API_KEY" \
+        -H "Content-Type: application/json" \
+        -d "$data")
+
+    # Extraire le code HTTP
+    http_code=$(echo "$response" | grep "HTTP_CODE" | sed 's/.*HTTP_CODE://')
+
+    echo "Importation n° : $response"
+}
+
+# Lecture du fichier CSV et construction des données JSON
+echo "Lecture du fichier CSV et importation dans la table '$TABLE'..."
+header_read=false
+keys=()
+
+while IFS=, read -r line; do
+    # Lire la première ligne comme les clés (colonnes)
+    if ! $header_read; then
+        IFS=',' read -ra keys <<< "$line" # Sauvegarder les noms de colonnes
+        header_read=true
+        continue
+    fi
+
+    # Lire les valeurs
+    IFS=',' read -ra values <<< "$line"
+
+    # Construire dynamiquement le JSON
+    json_data=$(jq -n '{data: {}}')
+    for i in "${!keys[@]}"; do
+        key=${keys[i]}
+        value=${values[i]}
+        json_data=$(echo "$json_data" | jq --arg k "$key" --arg v "$value" '.data[$k] = $v')
+    done
+
+    # Extraire la section "data" en JSON propre
+    json_data=$(echo "$json_data" | jq '.data')
+
+    # Appeler la fonction pour importer l'entrée
+    import_entry "$json_data"
+
+done < "$CSV_FILE"
+
+echo "Importation terminée."
+```
 
