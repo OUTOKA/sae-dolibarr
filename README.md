@@ -8,7 +8,7 @@ Dolibarr ERP & CRM est un logiciel moderne conçu pour gérer efficacement votre
 
 ## Comment configurer le docker-compose : 
 
-Nous l'avons récupérer le docker-compose via le lien : https://hub.docker.com/r/dolibarr/dolibarr
+Nous avons récupérer le docker-compose via le lien : [https://hub.docker.com/r/dolibarr/dolibarr](https://hub.docker.com/r/dolibarr/dolibarr)
 # Déploiement de Dolibarr avec Docker  
 
 Ce guide explique comment configurer et exécuter Dolibarr ERP & CRM en utilisant Docker et Docker Compose.  
@@ -87,8 +87,10 @@ Avant de commencer, assurez-vous que les conditions suivantes sont remplies :
 - Une base de données (MySQL, MariaDB, ou PostgreSQL).  
 
 ### Arrivé sur Dolibarr
-Pour se rendre sur Dolibarr, nous devons entrer l'URL http://127.0.0.1:90
-Connexion : admin / admin
+Dolibarr est accessible à l'adresse : [http://127.0.0.1:90](http://127.0.0.1:90).  
+- Connexion :
+  - **USER** : admin
+  - **MOT DE PASSE** : admin
 
 Se rendre dans le menu "Configuration" puis "Modules/Application".
 Selectionner ensuite les modules souhaité comment par exemple : "Utilisateur & Groupes", "Expedition"...
