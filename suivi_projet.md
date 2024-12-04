@@ -2,7 +2,7 @@
 
 * Mise en place d’un ERP/CRM dans une entreprise
 * NOM CHEF DE PROJET : Didierjean
-* NOMS AUTRE MEMBRES EQUIPE : Bienvenu
+* NOMS AUTRES MEMBRES EQUIPE : Bienvenu
 * DATE DEBUT : 05/11/2024
 
 
