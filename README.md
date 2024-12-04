@@ -157,16 +157,17 @@ import_entry() {
     local response
 
     # Envoi de la requête POST
-    response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "$API_URL/$TABLE" \
-        -H "DOLAPIKEY: $API_KEY" \
-        -H "Content-Type: application/json" \
-        -d "$data")
+	response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST "$API_URL/$TABLE" \
+		-H "DOLAPIKEY: $API_KEY" \
+    	-H "Content-Type: application/json" \
+    	-d "$data")
 
-    # Extraire le code HTTP
-    http_code=$(echo "$response" | grep "HTTP_CODE" | sed 's/.*HTTP_CODE://')
+	# Extraire le code HTTP
+	http_code=$(echo "$response" | grep "HTTP_CODE" | sed 's/.*HTTP_CODE://')
 
     echo "Importation n° : $response"
-}
+
+	}
 
 # Lecture du fichier CSV et construction des données JSON
 echo "Lecture du fichier CSV et importation dans la table '$TABLE'..."
