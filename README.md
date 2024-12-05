@@ -119,9 +119,9 @@ Activer ensuite ces modules.
 
 ---
 
-# Script d'importation de données vers Dolibarr via l'API   
+# Importation de données vers Dolibarr via l'API   
 
-Ce script en Bash permet d'importer des données depuis un fichier CSV dans une table cible de Dolibarr via son API REST. Il utilise `curl` pour envoyer les requêtes HTTP et `jq` pour manipuler les données JSON.
+Nous avons réaliser un script en Bash qui permet d'importer des données depuis un fichier CSV dans une table cible de Dolibarr via son API. Il utilise `curl` pour envoyer les requêtes HTTP et `jq` pour manipuler les données JSON.
 
 ---
 
@@ -143,7 +143,7 @@ Avant d'utiliser ce script, assurez-vous d'avoir les éléments suivants :
 
 ## Utilisation  
 
-# Importation de données vers Dolibarr via l'API  
+### Script import_csv.sh 
 
 ```bash
 #!/bin/bash
