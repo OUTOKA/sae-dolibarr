@@ -9,6 +9,67 @@
 
 Dolibarr est un logiciel moderne conçu pour gérer efficacement votre activité, que vous soyez une entreprise, une association ou autre. Intuitif et modulaire, il vous permet d'activer uniquement les fonctionnalités dont vous avez besoin, comme la gestion des contacts, des fournisseurs, des factures, des commandes, des stocks ou encore de l'agenda.
 
+## Fonctionnalités principales
+### CRM
+- Suivi des clients/prospects.
+- Opportunités commerciales.
+- E-mailing.
+
+### Gestion commerciale
+- **Devis et commandes** : Création, suivi, conversion en factures.
+- **Facturation** : Génération de factures, rappels, gestion des paiements.
+- **Produits/Services** : Stock, prix, alertes de seuil.
+
+### Finances
+- Suivi des comptes bancaires, flux financiers.
+- Rapports financiers, gestion de la TVA.
+
+### Projets
+- Planification et gestion des tâches.
+- Suivi via diagrammes de Gantt.
+
+### RH
+- Suivi des employés.
+- Gestion des congés et paies.
+
+### Stock
+- Gestion multi-entrepôts.
+- Suivi en temps réel des niveaux de stock.
+
+### E-commerce
+- Intégration avec WooCommerce, Prestashop.
+- Portail client.
+
+### Autres
+- GED (Gestion des documents).
+- Modules pour associations.
+
+## Architecture et Modules
+- **Modulable** : Activez/désactivez les fonctionnalités selon vos besoins.
+- **Plugins** : Extensible via Dolistore (marketplace officielle).
+
+## Base de données
+- **Nombre de tables** : Plus de 300 (varie selon les modules activés).
+- **Exemples de tables** :
+  - `llx_users` : Utilisateurs.
+  - `llx_facture` : Factures.
+  - `llx_projet` : Projets.
+  - `llx_product` : Produits.
+
+## Points forts
+- **Gratuit et open-source**.
+- **Communauté active** pour support et extensions.
+- **Sécurité** : Gestion fine des droits d’accès.
+- **Portabilité** : Fonctionne sur Windows, Linux, macOS, Docker.
+
+## API REST
+- Permet l’accès aux données (listes de tables, contenus).
+- Configurable via un jeton d’authentification.
+
+## Conclusion
+Dolibarr est une solution puissante, simple à utiliser, et adaptée à des besoins variés. Idéale pour centraliser la gestion des activités d'une organisation.
+
+
 ### Toutes les manipulations qui vont suivre peuvent être réalisées dans dossier VF_Projet qui se situe à la racine de notre repository.
 
 ## Comment configurer le docker-compose : 
