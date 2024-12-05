@@ -293,8 +293,8 @@ echo "Importation terminée."
    - Le script vérifie si `jq` est installé, car il est indispensable pour manipuler les données JSON.  
 
 3. **Demande d'informations utilisateur** :  
-   - Le chemin du fichier CSV à importer, un fichier exemple se trouve dans le VF_Final sous le nom de users.csv  
-   - La table cible de Dolibarr où les données doivent être ajoutées (exemple : `users`).  
+   - Le chemin du fichier CSV à importer, un fichier exemple se trouve dans le VF_Final sous le nom de users.csv (users.csv généré avec Chat GPT avec le prompt: Fais moi une liste de 5 utilisateurs aléatoire en csv en reprennant les colonnes login,lastname,firstname,email,town,gender,phone_pro. 
+   - La table cible de Dolibarr où les données doivent être ajoutées (exemple : `users`).
 
 4. **Lecture du fichier CSV** :  
    - La première ligne du fichier est l'en-tête, utilisée pour définir les clés des données.  
