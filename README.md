@@ -73,7 +73,7 @@ docker-compose up --build
 
 web_1      | [INIT] => As UID / GID have changed from default, update ownership for files in /var/ww ...
 
-Entrez la commande : ```bash sudo chown -R www-data:www-data /var/www``` )
+Entrez la commande : ``` sudo chown -R www-data:www-data /var/www``` )
 
 ## Services configurés  
 
@@ -119,7 +119,7 @@ Activer ensuite ces modules.
 
 ---
 
-# Script d'importation de données vers Dolibarr via l'API REST  
+# Script d'importation de données vers Dolibarr via l'API   
 
 Ce script en Bash permet d'importer des données depuis un fichier CSV dans une table cible de Dolibarr via son API REST. Il utilise `curl` pour envoyer les requêtes HTTP et `jq` pour manipuler les données JSON.
 
@@ -252,7 +252,10 @@ echo "Importation terminée."
 2- Modifiez le script en remplaçant la parie <API utilisateur> dans les variables par l'API d'un utilisateur. Pour trouver l'API d'un utilisateur (l'admin par exemple) se rendre sur le serveur Dolibarr, aller dans l'onglet Utilisateurs & Groupes, Liste des utilisateurs, en sélectionner un puis cliquer sur modifier. Vous aurez alors la possibilité de générer une clé API. Vous n'aurez alors plus qu'à la copier/coller à l'emplacement dédié dans le script.
 
 3- Une fois ces étapes réalisées, lancez le script en vous plaçant dans le même répertoire que le script puis en entrant la commande :
-```bash ./import_csv.sh ```
+``` ./import_csv.sh ```
+
+4- Dans un premier temps vous devrez alors entrer le chemin complet de votre fichier CSV puis ensuite entrer la table correspondante au fichier.
 
 ## Les Tables
-Pour trouver les différentes tables possibles à utiliser avec le script import_csv.sh
+Pour trouver les différentes tables possibles à utiliser avec le script import_csv.sh, il vous suffit de vous rendre à l'url http://http://127.0.0.1:90/api/index.php/explorer/
+Ensuite, en haut à droite, entrez votre clé API puis cliquez sur Explore. Vous trouverez ainsi la liste des tables accessibles.
