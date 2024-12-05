@@ -7,20 +7,22 @@
 
 ## Qu'est ce que Dolibarr ? 
 
-Dolibarr ERP & CRM est un logiciel moderne conçu pour gérer efficacement votre activité, que vous soyez une entreprise, une association ou autre. Intuitif et modulaire, il vous permet d'activer uniquement les fonctionnalités dont vous avez besoin, comme la gestion des contacts, des fournisseurs, des factures, des commandes, des stocks ou encore de l'agenda.
+Dolibarr est un logiciel moderne conçu pour gérer efficacement votre activité, que vous soyez une entreprise, une association ou autre. Intuitif et modulaire, il vous permet d'activer uniquement les fonctionnalités dont vous avez besoin, comme la gestion des contacts, des fournisseurs, des factures, des commandes, des stocks ou encore de l'agenda.
+
+### Toutes les manipulations qui vont suivre peuvent être réalisées dans dossier VF_Projet qui se situe à la racine de notre repository.
 
 ## Comment configurer le docker-compose : 
 
 Nous avons récupérer le docker-compose via le lien : [https://hub.docker.com/r/dolibarr/dolibarr](https://hub.docker.com/r/dolibarr/dolibarr)
 # Déploiement de Dolibarr avec Docker  
 
-Ce guide explique comment configurer et exécuter Dolibarr ERP & CRM en utilisant Docker et Docker Compose.  
+Ce guide explique comment configurer et exécuter Dolibarr en utilisant Docker et Docker Compose.  
 
 ## Prérequis  
 - **Docker** et **Docker Compose** doivent être installés sur votre machine.  
 - Assurez-vous d'avoir les permissions nécessaires pour créer et monter des volumes locaux.  
 
-## Fichier docker-compose.yml
+## Fichier docker-compose
 
 Voici le fichier **docker-compose.yml** :  
 
@@ -57,7 +59,17 @@ services:
             - /home/dolibarr_custom:/var/www/html/custom1
 ```
 
-Ce fichier `docker-compose.yml` configure et déploie deux conteneurs afin d'exécuter Dolibarr ERP & CRM avec Docker.  
+Ce fichier configure et déploie deux conteneurs afin d'exécuter Dolibarr avec Docker.
+
+## Lancement des conteneurs
+
+	- 1. Créer un fichier nommé docker-compose.yml puis y copier le contenu du fichier présent juste au-dessus.
+ 	- 2. Dans le même répertoire que le docker-compose, lancer la commande:
+```bash
+docker-compose up --build
+```
+	- 3. Une fois les deux conteneurs lancés correctement, accéder au serveur Dolibarr en entrant: http://127.0.0.1:90
+ 	- 4. Se connecter avec les identifiants et mot de passe configurés dans le docker-compose: admin et admin
 
 ## Services configurés  
 
