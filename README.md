@@ -63,13 +63,13 @@ Ce fichier configure et déploie deux conteneurs afin d'exécuter Dolibarr avec 
 
 ## Lancement des conteneurs
 
-	- 1. Créer un fichier nommé docker-compose.yml puis y copier le contenu du fichier présent juste au-dessus.
- 	- 2. Dans le même répertoire que le docker-compose, lancer la commande:
+- 1. Créer un fichier nommé docker-compose.yml puis y copier le contenu du fichier présent juste au-dessus.
+- 2. Dans le même répertoire que le docker-compose, lancer la commande:
 ```bash
 docker-compose up --build
 ```
-	- 3. Une fois les deux conteneurs lancés correctement, accéder au serveur Dolibarr en entrant: http://127.0.0.1:90
- 	- 4. Se connecter avec les identifiants et mot de passe configurés dans le docker-compose: admin et admin
+- 3. Une fois les deux conteneurs lancés correctement, accéder au serveur Dolibarr en entrant: http://127.0.0.1:90
+- 4. Se connecter avec les identifiants et mot de passe configurés dans le docker-compose: admin et admin
 
 ## Services configurés  
 
