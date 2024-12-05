@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Création répertoire pour stocker les sauvegardes
+mkdir /home/backups_dolibarr
+
 # Configurations
-BACKUP_DIR="/home/outoka/sae-dolibarr/backups_dolibarr"
+BACKUP_DIR="/home/backups_dolibarr"
 DB_NAME="dolibarr"
 DB_USER="root"
 DB_PASS="root"
