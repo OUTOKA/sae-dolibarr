@@ -69,6 +69,11 @@ Ce fichier configure et déploie deux conteneurs afin d'exécuter Dolibarr avec 
 ```bash
 docker-compose up --build
 ```
+(Si lors du lancement, cette erreur apparait pour le serveur web : 
+
+web_1      | [INIT] => As UID / GID have changed from default, update ownership for files in /var/ww ...
+
+Entrez la commande : ```bash sudo chown -R www-data:www-data /var/www``` )
 
 ## Services configurés  
 
@@ -145,7 +150,7 @@ Avant d'utiliser ce script, assurez-vous d'avoir les éléments suivants :
 
 # Configuration de base
 API_URL="http://0.0.0.0:90/api/index.php"
-API_KEY="oZoO7U2y7oBz1UiFgiJg372TJ3W1rsS4"
+API_KEY="<API utilisateur>"
 
 # Vérifier si jq est installé
 if ! command -v jq &> /dev/null; then
@@ -227,8 +232,8 @@ echo "Importation terminée."
    - Le script vérifie si `jq` est installé, car il est indispensable pour manipuler les données JSON.  
 
 3. **Demande d'informations utilisateur** :  
-   - Le chemin du fichier CSV à importer.  
-   - La table cible de Dolibarr où les données doivent être ajoutées (exemple : `users`, `products`).  
+   - Le chemin du fichier CSV à importer, un fichier exemple se trouve dans le VF_Final sous le nom de users.csv  
+   - La table cible de Dolibarr où les données doivent être ajoutées (exemple : `users`).  
 
 4. **Lecture du fichier CSV** :  
    - La première ligne du fichier est l'en-tête, utilisée pour définir les clés des données.  
@@ -240,3 +245,14 @@ echo "Importation terminée."
 
 6. **Affichage des résultats** :  
    - Le script affiche les réponses de l'API pour chaque envoi, ce qui permet de vérifier
+  
+### Utilisation du script import_csv.sh 
+1- Dans un premier temps il faut copier ce script dans un fichier nommé import_csv.sh (sinon il se trouve dans le répertoir VF_Final dans notre repository)
+
+2- Modifiez le script en remplaçant la parie <API utilisateur> dans les variables par l'API d'un utilisateur. Pour trouver l'API d'un utilisateur (l'admin par exemple) se rendre sur le serveur Dolibarr, aller dans l'onglet Utilisateurs & Groupes, Liste des utilisateurs, en sélectionner un puis cliquer sur modifier. Vous aurez alors la possibilité de générer une clé API. Vous n'aurez alors plus qu'à la copier/coller à l'emplacement dédié dans le script.
+
+3- Une fois ces étapes réalisées, lancez le script en vous plaçant dans le même répertoire que le script puis en entrant la commande :
+```bash ./import_csv.sh ```
+
+## Les Tables
+Pour trouver les différentes tables possibles à utiliser avec le script import_csv.sh
