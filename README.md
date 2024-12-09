@@ -355,3 +355,8 @@ Ce script réalise en même temps une sauvegarde dae la base de données afin d'
 Afin qu'une sauvegarde soit réalisée tous les jours à 2h du matin on peut utiliser cron avec a commande ```0 2 * * * /bin/bash /chemin/vers/backup.sh```
 en indiquant le chemin correspondant au script.
  
+# Nos choix
+
+Suite à la mise en place de notre serveur Dolibarr nous avons choisis de nous intéresser à l'importation de fichiers CSV et à la rédaction d'un script permettant d'automatiser les imports.
+
+Suite à de nombreuses recherches sur l'importation de CSV sur un serveur Dolibarr, l'utilisation de l'API du serveur comme technique s'est rapidement présentée. Nous avons donc choisis de continuer dans cette voie et avons fini par réussir à importer des données utilisateurs sur notre serveur. L'utilisation de l'APi permet une plus grande sécurité puisque les utilisateurs doivent s'identifier ce qui permet de contrôler les imports de données. L'API limite également d'introduire des erreurs dans les données puisqu'elle applique les règles de validation de Dolibarr. L'API permet également de vérifier les doublons, ce qui permet également d'éviter des erreurs.
